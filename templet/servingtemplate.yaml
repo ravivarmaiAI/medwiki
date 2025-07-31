@@ -36,7 +36,7 @@ spec:
         maxReplicas: 1
         containers:
         - name: kserve-container
-          image: index.docker.io/ravivarmaiai/medwiki:latest
+          image: index.docker.io/ravivarmaiai/iimed:latest
           ports:
             - containerPort: 8080
               protocol: TCP
