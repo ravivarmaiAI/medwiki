@@ -1,20 +1,20 @@
 apiVersion: ai.sap.com/v1alpha1
 kind: ServingTemplate
 metadata:
-  name: iimed8b-template
+  name: deepseek-vl-template
   annotations:
     scenarios.ai.sap.com/description: "Run a custom transformer server on SAP AI Core"
-    scenarios.ai.sap.com/name: "iimed8b"
+    scenarios.ai.sap.com/name: "deepseek-vl"
     executables.ai.sap.com/description: "Run a custom transformer server on SAP AI Core"
-    executables.ai.sap.com/name: "iimed8b"
+    executables.ai.sap.com/name: "deepseek-vl"
   labels:
-    scenarios.ai.sap.com/id: "iimed8b"
+    scenarios.ai.sap.com/id: "deepseek-vl"
     ai.sap.com/version: "10.0"
 spec:
   inputs:
     parameters:
       - name: modelName # placeholder name
-        default: "iimed8b" 
+        default: "deepseek-vl" 
         type: string # required for every parameters
         description: "Model Name to be used in SAP Generative AI Hub SDK. Ensure an identical value as alias parameter"
       - name: resourcePlan
@@ -36,7 +36,7 @@ spec:
         maxReplicas: 1
         containers:
         - name: kserve-container
-          image: index.docker.io/ravivarmaiai/iimed8b:latest
+          image: index.docker.io/ravivarmaiai/deepseek-vl:latest
           ports:
             - containerPort: 8080
               protocol: TCP
