@@ -1,20 +1,20 @@
 apiVersion: ai.sap.com/v1alpha1
 kind: ServingTemplate
 metadata:
-  name: deepseek-vl-template
+  name: qwen2-template
   annotations:
     scenarios.ai.sap.com/description: "Run a custom transformer server on SAP AI Core"
-    scenarios.ai.sap.com/name: "deepseek-vl"
+    scenarios.ai.sap.com/name: "qwen2"
     executables.ai.sap.com/description: "Run a custom transformer server on SAP AI Core"
-    executables.ai.sap.com/name: "deepseek-vl"
+    executables.ai.sap.com/name: "qwen2"
   labels:
-    scenarios.ai.sap.com/id: "deepseek-vl"
-    ai.sap.com/version: "10.1"
+    scenarios.ai.sap.com/id: "qwen2"
+    ai.sap.com/version: "10.2"
 spec:
   inputs:
     parameters:
       - name: modelName # placeholder name
-        default: "deepseek-vl" 
+        default: "qwen2" 
         type: string # required for every parameters
         description: "Model Name to be used in SAP Generative AI Hub SDK. Ensure an identical value as alias parameter"
       - name: resourcePlan
@@ -36,7 +36,7 @@ spec:
         maxReplicas: 1
         containers:
         - name: kserve-container
-          image: index.docker.io/ravivarmaiai/deepseek-vl:latest
+          image: index.docker.io/ravivarmaiai/qwen2:latest
           ports:
             - containerPort: 8080
               protocol: TCP
